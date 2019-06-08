@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import { ActionSheetIOS, Platform, Button } from 'react-native';
+import React, { Component } from "react";
+import { ActionSheetIOS, Platform, Button } from "react-native";
 
-import PhotoBrowser from 'react-native-photo-browser';
+import PhotoBrowser from "react-native-photo-browser";
 
 export default class HomeScreen extends Component {
   static navigationOptions = {
-    header: null,
+    header: null
   };
 
   state = {
     mediaList: this.props.navigation.state.params.example.media,
-    selected: new Set(),
-  }
+    selected: new Set()
+  };
 
   onSelectionChanged = (media, index, selected) => {
     this.setState(prevState => {
@@ -21,21 +21,21 @@ export default class HomeScreen extends Component {
       } else {
         copy.delete(index);
       }
-      return { 
-        selected: copy, 
+      return {
+        selected: copy
       };
     });
   };
 
   onActionButton = (media, index) => {
-    if (Platform.OS === 'ios') {
+    if (Platform.OS === "ios") {
       ActionSheetIOS.showShareActionSheetWithOptions(
         {
           url: media.photo,
-          message: media.caption,
+          message: media.caption
         },
         () => {},
-        () => {},
+        () => {}
       );
     } else {
       alert(`handle sharing on android for ${media.photo}, index: ${index}`);
@@ -50,7 +50,7 @@ export default class HomeScreen extends Component {
       displaySelectionButtons,
       startOnGrid,
       enableGrid,
-      alwaysDisplayStatusBar,
+      alwaysDisplayStatusBar
     } = this.props.navigation.state.params.example;
 
     const { mediaList, selected } = this.state;
@@ -58,7 +58,8 @@ export default class HomeScreen extends Component {
     return (
       <>
         <PhotoBrowser
-          onBack={navigator.pop}
+          onBack={() => {}}
+          backTitle=""
           mediaList={mediaList}
           initialIndex={initialIndex}
           displayNavArrows={displayNavArrows}
@@ -72,17 +73,6 @@ export default class HomeScreen extends Component {
           alwaysDisplayStatusBar={alwaysDisplayStatusBar}
           customTitle={(index, rowCount) => `${index} sur ${rowCount}`}
         />
-        {selected.size > 0 && (
-          <Button
-            title="Delete"
-            onPress={() =>
-              this.setState(prevState => ({
-                mediaList: prevState.mediaList.filter((_, i) => !prevState.selected.has(i)),
-                selected: new Set(),
-              }))
-            }
-          />
-        )}
       </>
     );
   }
