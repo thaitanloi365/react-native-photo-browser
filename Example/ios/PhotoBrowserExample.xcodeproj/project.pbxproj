@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -25,6 +24,7 @@
 		9F79A1281FB06D4800110569 /* libRCTCameraRoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F79A1121FB06D0A00110569 /* libRCTCameraRoll.a */; };
 		9F79A14C1FB0781300110569 /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F79A12F1FB0780A00110569 /* libART.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
+		644081645C2949DDB866598C /* libRNCViewpager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D373E64F417343999E2B9E6F /* libRNCViewpager.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -335,6 +335,8 @@
 		9F79A1061FB06D0900110569 /* RCTCameraRoll.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCameraRoll.xcodeproj; path = "../node_modules/react-native/Libraries/CameraRoll/RCTCameraRoll.xcodeproj"; sourceTree = "<group>"; };
 		9F79A1291FB0780A00110569 /* ART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ART.xcodeproj; path = "../node_modules/react-native/Libraries/ART/ART.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
+		905DA285F5AB41C4B9372DF4 /* RNCViewpager.xcodeproj */ = {isa = PBXFileReference; name = "RNCViewpager.xcodeproj"; path = "../node_modules/@react-native-community/viewpager/ios/RNCViewpager.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		D373E64F417343999E2B9E6F /* libRNCViewpager.a */ = {isa = PBXFileReference; name = "libRNCViewpager.a"; path = "libRNCViewpager.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -357,6 +359,7 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
+				644081645C2949DDB866598C /* libRNCViewpager.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +517,7 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
+				905DA285F5AB41C4B9372DF4 /* RNCViewpager.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -609,7 +613,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 610;
 				ORGANIZATIONNAME = Facebook;
 			};
 			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "PhotoBrowserExample" */;
@@ -1041,6 +1045,14 @@
 				);
 				PRODUCT_NAME = PhotoBrowserExample;
 				VERSIONING_SYSTEM = "apple-generic";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/PhotoBrowserExample\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/@react-native-community/viewpager/ios",
+				);
 			};
 			name = Debug;
 		};
@@ -1059,6 +1071,14 @@
 				);
 				PRODUCT_NAME = PhotoBrowserExample;
 				VERSIONING_SYSTEM = "apple-generic";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/PhotoBrowserExample\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/@react-native-community/viewpager/ios",
+				);
 			};
 			name = Release;
 		};
